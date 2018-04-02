@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './style/base.less';
+import App from './components/App';
 
-ReactDOM.render(
-  <p>Hello World</p>,
-  document.getElementById('react-container')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
