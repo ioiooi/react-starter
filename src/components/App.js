@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
+import styles from './App.scss';
 
 class App extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class App extends Component {
     return (
       <div>
         <p>Why, hello there.</p>
-        <p>{counter}</p>
+        <p id="counter">{counter}</p>
       </div>
     );
   }
