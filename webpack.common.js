@@ -18,21 +18,17 @@ module.exports = {
       },
       {
         test: /\.(scss|sass)$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader', options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'sass-loader', options: {
-              sourceMap: true
-            }
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader', options: {
+            sourceMap: true
           }
-        ]
+        }, {
+          loader: 'sass-loader', options: {
+            sourceMap: true
+          }
+        }]
       }
     ]
   },
