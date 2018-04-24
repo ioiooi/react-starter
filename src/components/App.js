@@ -5,21 +5,17 @@ import styles from './App.scss';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { counter: 0 }
+    this.state = { counter: 0 };
   }
-  
+
   componentDidMount() {
-    this.intervalID = setInterval(
-      () => this.increment(),
-      1000
-    );
+    this.intervalID = setInterval(() => this.increment(), 1000);
   }
 
   componentWillUnmount() {
     clearInterval(this.intervalID);
   }
-  
-  
+
   increment() {
     this.setState(({ counter }) => ({
       counter: counter + 1

@@ -7,29 +7,31 @@ const extractSass = new ExtractTextPlugin({
   filename: '[name].[hash].css'
 });
 
-module.exports = merge(
-  {
-    customizeArray(a, b, key) {
-      if (key === 'module.rules') {
-        // TODO: find a better solution
-        return [a[0]].concat(b);
-      }
+module.exports = merge({
+  customizeArray(a, b, key) {
+    if (key === 'module.rules') {
+      // TODO: find a better solution
+      return [a[0]].concat(b);
     }
   }
-)(common, {
+})(common, {
   mode: 'production',
   module: {
     rules: [
       {
         test: /\.(scss|sass)$/,
         use: extractSass.extract({
-          use: [{
-            loader: 'css-loader', options: {
-              minimize: true
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true
+              }
+            },
+            {
+              loader: 'sass-loader'
             }
-          }, {
-            loader: 'sass-loader'
-          }]
+          ]
         })
       }
     ]

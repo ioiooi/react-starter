@@ -13,23 +13,27 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          { loader: 'babel-loader' }
-        ]
+        use: [{ loader: 'babel-loader' }]
       },
       {
         test: /\.(scss|sass)$/,
-        use: [{
-          loader: 'style-loader'
-        }, {
-          loader: 'css-loader', options: {
-            sourceMap: true
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
           }
-        }, {
-          loader: 'sass-loader', options: {
-            sourceMap: true
-          }
-        }]
+        ]
       }
     ]
   },
@@ -39,4 +43,4 @@ module.exports = {
       template: path.resolve(__dirname, './src/index.html')
     })
   ]
-}
+};
