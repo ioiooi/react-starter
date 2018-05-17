@@ -1,43 +1,24 @@
-const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
+const merge = require('webpack-merge');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const extractSass = new ExtractTextPlugin({
-  filename: '[name].[hash].css'
-});
-
-module.exports = merge({
-  customizeArray(a, b, key) {
-    if (key === 'module.rules') {
-      // TODO: find a better solution
-      return [a[0]].concat(b);
-    }
-  }
+module.exports = merge.smartStrategy({
+  'module.rules.use': 'prepend'
 })(common, {
   mode: 'production',
   module: {
     rules: [
       {
         test: /\.(scss|sass)$/,
-        use: extractSass.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                minimize: true
-              }
-            },
-            {
-              loader: 'sass-loader'
-            }
-          ]
-        })
+        use: [MiniCssExtractPlugin.loader]
       }
     ]
   },
   plugins: [
-    extractSass,
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css'
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     })

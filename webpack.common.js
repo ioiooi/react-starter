@@ -1,6 +1,6 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -18,9 +18,6 @@ module.exports = {
       {
         test: /\.(scss|sass)$/,
         use: [
-          {
-            loader: 'style-loader'
-          },
           {
             loader: 'css-loader',
             options: {
