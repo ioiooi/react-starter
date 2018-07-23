@@ -2,6 +2,16 @@
 
 webpack + react + react-hot-loader...
 
+## Update July-23-2018
+
+Code splitting of application in production.  
+Using `splitChunks` optimization to create a `vendors.js` bundle.  
+Using `HashedModuleIdsPlugin` to prevent unexpected changes to the `vendors.js` bundle hash value.
+
+Useful Links:  
+[`splitChunks` vendor bundle example.](https://webpack.js.org/plugins/split-chunks-plugin/#split-chunks-example-2)  
+[Why `HashedModuleIdsPlugin` is necessary.](https://webpack.js.org/guides/caching/#module-identifiers)
+
 ## Update May-17-2018
 
 Replaced `extract-text-webpack-plugin` with `mini-css-extract-plugin`
