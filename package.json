@@ -10,25 +10,25 @@
   "author": "Eugen Mayer",
   "license": "ISC",
   "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.54",
-    "@babel/preset-env": "^7.0.0-beta.54",
-    "@babel/preset-react": "^7.0.0-beta.54",
-    "babel-loader": "^8.0.0-beta.4",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.4.1",
-    "node-sass": "^4.9.2",
-    "react-hot-loader": "^4.3.3",
-    "sass-loader": "^7.0.3",
+    "mini-css-extract-plugin": "^0.4.3",
+    "node-sass": "^4.9.3",
+    "react-hot-loader": "^4.3.11",
+    "sass-loader": "^7.1.0",
     "style-loader": "^0.20.3",
-    "webpack": "^4.16.2",
-    "webpack-cli": "^2.1.5",
-    "webpack-dev-server": "^3.1.5",
-    "webpack-merge": "^4.1.3"
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4"
   }
 }
