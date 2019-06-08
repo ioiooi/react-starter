@@ -2,6 +2,11 @@
 
 webpack + react + react-hot-loader...
 
+## Update June-08-2019
+
+:arrow_up: Upgrading dependencies  
+:boom: Using named export for `CleanWebpackPlugin` due to breaking changes [(link)](https://github.com/johnagan/clean-webpack-plugin/issues/106)
+
 ## Update July-23-2018
 
 Code splitting of application in production.  
