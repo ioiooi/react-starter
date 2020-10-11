@@ -1,10 +1,12 @@
 const common = require('./webpack.common.js');
-const merge = require('webpack-merge');
+const { mergeWithCustomize, customizeArray } = require('webpack-merge');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = merge.smartStrategy({
-  'module.rules.use': 'prepend'
+module.exports = mergeWithCustomize({
+  customizeArray: customizeArray({
+    'module.rules': 'prepend'
+  })
 })(common, {
   mode: 'production',
   output: {
