@@ -23,7 +23,7 @@ module.exports = mergeWithCustomize({
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
-    contentBase: './dist',
+    static: './dist',
     hot: true,
     open: true
   }

@@ -21,7 +21,8 @@ module.exports = mergeWithCustomize({
           chunks: 'all'
         }
       }
-    }
+    },
+    moduleIds: 'deterministic'
   },
   module: {
     rules: [
@@ -32,7 +33,6 @@ module.exports = mergeWithCustomize({
     ]
   },
   plugins: [
-    new webpack.HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].[chunkhash].css'
     }),
