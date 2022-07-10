@@ -1,6 +1,7 @@
 const { mergeWithCustomize, customizeArray } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const webpack = require('webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = mergeWithCustomize({
   customizeArray: customizeArray({
@@ -21,9 +22,14 @@ module.exports = mergeWithCustomize({
       }
     ]
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new ReactRefreshWebpackPlugin({
+      overlay: {
+        sockIntegration: 'whm',
+      },
+    })
+  ],
   devServer: {
-    static: './dist',
     hot: true,
     open: true
   }
