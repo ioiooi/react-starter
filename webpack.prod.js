@@ -27,7 +27,7 @@ module.exports = mergeWithCustomize({
   module: {
     rules: [
       {
-        test: /\.(scss|sass)$/,
+        test: /\.css$/,
         use: [MiniCssExtractPlugin.loader]
       }
     ]
