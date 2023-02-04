@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import styles from './App.scss';
+import "./App.css";
+import React, { Component } from "react";
 
 class App extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class App extends Component {
 
   increment() {
     this.setState(({ counter }) => ({
-      counter: counter + 1
+      counter: counter + 1,
     }));
   }
 

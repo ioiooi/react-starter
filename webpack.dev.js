@@ -1,36 +1,29 @@
-const { mergeWithCustomize, customizeArray } = require('webpack-merge');
-const common = require('./webpack.common.js');
-const webpack = require('webpack');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const { mergeWithCustomize, customizeArray } = require("webpack-merge");
+const common = require("./webpack.common.js");
+const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 module.exports = mergeWithCustomize({
   customizeArray: customizeArray({
-    'module.rules': 'prepend'
-  })
+    "module.rules": "prepend",
+  }),
 })(common, {
-  mode: 'development',
-  devtool: 'inline-source-map',
+  mode: "development",
+  devtool: "inline-source-map",
+  devServer: {
+    hot: true,
+    open: true,
+  },
   module: {
     rules: [
       {
-        test: /\.(scss|sass)$/,
+        test: /\.css$/,
         use: [
           {
-            loader: 'style-loader'
-          }
-        ]
-      }
-    ]
-  },
-  plugins: [
-    new ReactRefreshWebpackPlugin({
-      overlay: {
-        sockIntegration: 'whm',
+            loader: "style-loader",
+          },
+        ],
       },
-    })
-  ],
-  devServer: {
-    hot: true,
-    open: true
-  }
+    ],
+  },
+  plugins: [new ReactRefreshPlugin()],
 });
