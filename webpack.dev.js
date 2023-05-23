@@ -1,14 +1,10 @@
-const { mergeWithCustomize, customizeArray } = require("webpack-merge");
 const common = require("./webpack.common.js");
+const { merge } = require("webpack-merge");
 const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
-module.exports = mergeWithCustomize({
-  customizeArray: customizeArray({
-    "module.rules": "prepend",
-  }),
-})(common, {
+module.exports = merge(common, {
   mode: "development",
-  devtool: "inline-source-map",
+  devtool: "cheap-source-map",
   devServer: {
     hot: true,
     open: true,
@@ -17,11 +13,7 @@ module.exports = mergeWithCustomize({
     rules: [
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: "style-loader",
-          },
-        ],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
