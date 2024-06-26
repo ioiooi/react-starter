@@ -1,7 +1,9 @@
 import React from 'react';
+import { useParkingTicketContext } from './ParkingTicketContext';
 
-const ParkingTicket = ({ parkingTicket, onIncrement, onDecrement }) => {
+const ParkingTicket = ({ parkingTicket }) => {
   const { name, price, maxAmount, selectedAmount } = parkingTicket;
+  const { onIncrement, onDecrement } = useParkingTicketContext();
 
   const handleIncrement = () => {
     if (selectedAmount < maxAmount) {
