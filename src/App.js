@@ -1,33 +1,48 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from 'react';
+import ParkingTicket from './ParkingTicket';
+
+const parkingTickets = [
+  { name: 'Ticket A', price: 10, maxAmount: 5, selectedAmount: 2 },
+  { name: 'Ticket B', price: 20, maxAmount: 4, selectedAmount: 1 },
+  { name: 'Ticket C', price: 15, maxAmount: 3, selectedAmount: 1 },
+  // Add more tickets as needed
+];
 
 const App = () => {
-  const [count, setCount] = useState(0);
-  const countRef = useRef(count);
+  const [tickets, setTickets] = useState(parkingTickets);
 
-  // Within the first useEffect hook, whenever the count value changes, the ref value
-  // countRef.current is updated to match the latest count value. This ensures that the ref
-  // always holds the correct and up-to-date count value.
-  useEffect(() => {
-    countRef.current = count;
-  }, [count]);
+  const handleIncrement = (name) => {
+    const updatedTickets = tickets.map((ticket) =>
+      ticket.name === name ? { ...ticket, selectedAmount: ticket.selectedAmount + 1 } : ticket
+    );
+    setTickets(updatedTickets);
+  };
 
-  // Then, in the second useEffect hook, the countRef.current value (which represents
-  // the latest count value) is used to increment and update the count state within the
-  // setInterval callback.
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCount(countRef.current + 1);
-    }, 1000);
+  const handleDecrement = (name) => {
+    const updatedTickets = tickets.map((ticket) =>
+      ticket.name === name ? { ...ticket, selectedAmount: ticket.selectedAmount - 1 } : ticket
+    );
+    setTickets(updatedTickets);
+  };
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+  const calculateTotalPrice = () => {
+    return tickets.reduce((total, ticket) => {
+      return total + ticket.selectedAmount * ticket.price;
+    }, 0);
+  };
 
   return (
     <div>
-      <p>Why, hello there.</p>
-      <p id="counter">{count}</p>
+      <h1>Parking Ticket Counter App</h1>
+      {tickets.map((ticket) => (
+        <ParkingTicket
+          key={ticket.name}
+          parkingTicket={ticket}
+          onIncrement={handleIncrement}
+          onDecrement={handleDecrement}
+        />
+      ))}
+      <h3>Total Price: ${calculateTotalPrice()}</h3>
     </div>
   );
 };
