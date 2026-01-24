@@ -25,6 +25,18 @@ module.exports = (env, argv) => {
             },
           },
         },
+        {
+          test: /\.(png|jpe?g|gif|webp|avif)$/i,
+          type: "asset",
+        },
+        {
+          test: /\.svg$/i,
+          type: "asset/resource",
+        },
+        {
+          test: /\.(woff2?|eot|ttf|otf)$/i,
+          type: "asset/resource",
+        },
       ],
     },
     plugins: [
