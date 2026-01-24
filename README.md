@@ -1,10 +1,39 @@
-# react-starter
+# Minimal React Starter
 
-webpack + react + react-refresh
+A lightweight React 19 boilerplate with Webpack 5 and hot module replacement.
 
-## Webpack Config
+## Getting Started
 
-Copy/pasted from the official documentation.
+```bash
+# Install dependencies
+npm install
 
-See the [Guides](https://webpack.js.org/guides/), namely Development, HMR, Production and Caching.
-Most of the production config can be skipped by setting `mode:'production'`. [WebpackDocs/Mode](https://webpack.js.org/concepts/mode/).
+# Start development server
+npm start
+
+# Build for production
+npm run build
+```
+
+## What's Included
+
+- React 19 with automatic JSX runtime
+- Webpack 5 with dev/prod configurations
+- Fast Refresh for instant feedback during development
+- CSS support with extraction for production
+- Asset handling for images, SVGs, and fonts
+- Optimized production builds with code splitting
+
+## Project Structure
+
+```
+src/
+  App.js        # Main component
+  index.js      # Entry point
+  index.css     # Global styles
+  index.html    # HTML template
+```
+
+## License
+
+ISC
