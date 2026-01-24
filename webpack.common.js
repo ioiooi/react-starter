@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isDevelopment = argv.mode !== "production";
@@ -10,6 +9,7 @@ module.exports = (env, argv) => {
     output: {
       filename: "[name].[fullhash].js",
       path: path.resolve(__dirname, "dist"),
+      clean: true,
     },
     module: {
       rules: [
@@ -28,7 +28,6 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
-      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "./src/index.html"),
       }),
